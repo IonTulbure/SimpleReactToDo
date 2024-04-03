@@ -18,6 +18,7 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
 function TodoForm({ addTodo }) {
   const [value, setValue] = React.useState("");
 
+  // handle addTodo function and add the item to the list.
   const handleSubmit = e => {
     e.preventDefault();
     if (!value) return;
@@ -54,17 +55,21 @@ function App() {
     }
   ]);
 
+  // function to add todo item
   const addTodo = text => {
     const newTodos = [...todos, { text }];
     setTodos(newTodos);
   };
 
+  // function to complete todo item
+  // update isCompleted state
   const completeTodo = index => {
     const newTodos = [...todos];
     newTodos[index].isCompleted = true;
     setTodos(newTodos);
   };
 
+  // function to remove todo item
   const removeTodo = index => {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
@@ -74,6 +79,7 @@ function App() {
   return (
     <div className="app">
       <div className="todo-list">
+        {/* map over the todo items from state and display them by index */}
         {todos.map((todo, index) => (
           <Todo
             key={index}
