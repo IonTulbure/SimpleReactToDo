@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 
+// todo form structure
 function Todo({ todo, index, completeTodo, removeTodo }) {
   return (
     <div className="todo" style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
@@ -13,6 +14,7 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
   );
 };
 
+// form submit
 function TodoForm({ addTodo }) {
   const [value, setValue] = React.useState("");
 
@@ -36,6 +38,7 @@ function TodoForm({ addTodo }) {
 }
 
 function App() {
+  // todo list
   const [todos, setTodos] = React.useState([
     {
       text: "Learn about React",
